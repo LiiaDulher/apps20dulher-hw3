@@ -38,12 +38,16 @@ class Student {
     }
 
     @Override
+    public int hashCode(){
+        return toString().hashCode();
+    }
+
+    @Override
     public boolean equals(Object s) {
-        Student st = (Student) s;
-        if (st == null) {
+        if (s == null || s.getClass() != Student.class) {
             return false;
         }
-        return st.toString().equals(this.toString());
+        return s.hashCode() == this.hashCode();
     }
 
 }
