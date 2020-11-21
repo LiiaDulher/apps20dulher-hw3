@@ -12,9 +12,7 @@ abstract class SmartArrayDecorator implements SmartArray {
         return smartArray.toArray();
     }
 
-    public String operationDescription() {
-        return "SmartArrayDecorator; ";
-    }
+    public abstract String operationDescription();
 
     public int size() {
         return smartArray.size();
