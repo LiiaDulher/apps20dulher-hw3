@@ -32,8 +32,8 @@ public class FilterDecorator extends SmartArrayDecorator {
 
     @Override
     public String operationDescription() {
-        return "FilterDecorator: removes all items, which doesn't satisfy" +
-                " given predicate; ";
+        return "FilterDecorator: removes all items, which doesn't satisfy"
+                + " given predicate; ";
     }
 
     @Override
