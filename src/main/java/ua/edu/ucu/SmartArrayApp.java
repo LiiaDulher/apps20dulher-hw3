@@ -13,7 +13,9 @@ import ua.edu.ucu.smartarr.DistinctDecorator;
 
 public class SmartArrayApp {
 
-    public static Integer[]
+    private static final double GRADE=4.0;
+
+    public static int[]
             filterPositiveIntegersSortAndMultiplyByTwo(Integer[] integers) {
                 
         MyPredicate pr = new MyPredicate() {
@@ -51,7 +53,12 @@ public class SmartArrayApp {
 //                    cmp),
 //                func);
         Object[] result = sa.toArray();
-        return Arrays.copyOf(result, result.length, Integer[].class);
+        //return Arrays.copyOf(result, result.length, int[].class);
+        int[] res = new int[result.length];
+        for (int i = 0; i < res.length; i++){
+            res[i] = (int) result[i];
+        }
+        return res;
     }
 
     public static String[]
@@ -65,22 +72,20 @@ public class SmartArrayApp {
             }
         };
 
-        double grade = 4.0;
-
         MyPredicate prG = new MyPredicate() {
             @Override
             public boolean test(Object s) {
                 Student st = (Student) s;
-                return st.getGPA() >= grade;
+                return st.getGPA() >= GRADE;
             }
         };
 
         MyComparator cmp = new MyComparator() {
             @Override
             public int compare(Object objA, Object objB) {
-                Student st1 = (Student) objA;
-                Student st2 = (Student) objB;
-                return st1.getSurname().compareTo(st2.getSurname());
+                Student stA = (Student) objA;
+                Student stB = (Student) objB;
+                return stA.getSurname().compareTo(stB.getSurname());
             }
         };
 
