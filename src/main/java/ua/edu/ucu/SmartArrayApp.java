@@ -13,10 +13,10 @@ import ua.edu.ucu.smartarr.DistinctDecorator;
 
 public class SmartArrayApp {
 
-    private static final double GRADE=4.0;
+    private static final double GRADE = 4.0;
 
     public static int[]
-            filterPositiveIntegersSortAndMultiplyByTwo(Integer[] integers) {
+            filterPositiveIntegersSortAndMultiplyByTwo(Object[] integers) {
                 
         MyPredicate pr = new MyPredicate() {
             @Override
@@ -55,7 +55,7 @@ public class SmartArrayApp {
         Object[] result = sa.toArray();
         //return Arrays.copyOf(result, result.length, int[].class);
         int[] res = new int[result.length];
-        for (int i = 0; i < res.length; i++){
+        for (int i = 0; i < res.length; i++) {
             res[i] = (int) result[i];
         }
         return res;
