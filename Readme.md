@@ -59,3 +59,14 @@ return res;
 ````
 private static final double GRADE=4.0;
 ````
+Для повного покриття коду тестами створено наступні класи та функції:
+````
+BaseArrayTest.java
+DistinctDecoratorTest.java
+SortDecoratorTest.java
+MapDecoratorTest.java
+FilterDecoratorTest.java
+StudentTest.java
+TestSmartArrayAppConstructor()
+````
+Вони є доповненням до основого тесту та самостійно не покривають весь код.
