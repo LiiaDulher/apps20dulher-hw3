@@ -14,7 +14,7 @@ import ua.edu.ucu.smartarr.DistinctDecorator;
 public class SmartArrayApp {
 
     public static Integer[]
-            filterPositiveIntegersSortAndMultiplyBy2(Integer[] integers) {
+            filterPositiveIntegersSortAndMultiplyByTwo(Integer[] integers) {
                 
         MyPredicate pr = new MyPredicate() {
             @Override
@@ -55,9 +55,9 @@ public class SmartArrayApp {
     }
 
     public static String[]
-            findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(
+    findDistinctStudentNamesFromSecondYearWithGPAgtFourAndOrderedBySurname(
                     Student[] students) {
-        MyPredicate pr1 = new MyPredicate() {
+        MyPredicate prY = new MyPredicate() {
             @Override
             public boolean test(Object s) {
                 Student st = (Student) s;
@@ -65,11 +65,13 @@ public class SmartArrayApp {
             }
         };
 
-        MyPredicate pr2 = new MyPredicate() {
+        double grade = 4.0;
+
+        MyPredicate prG = new MyPredicate() {
             @Override
             public boolean test(Object s) {
                 Student st = (Student) s;
-                return st.getGPA() >= 4.0;
+                return st.getGPA() >= grade;
             }
         };
 
@@ -96,8 +98,8 @@ public class SmartArrayApp {
 
         SmartArray studentSmartArray = new BaseArray(students);
         studentSmartArray = new DistinctDecorator(studentSmartArray);
-        studentSmartArray = new FilterDecorator(studentSmartArray, pr1);
-        studentSmartArray = new FilterDecorator(studentSmartArray, pr2);
+        studentSmartArray = new FilterDecorator(studentSmartArray, prY);
+        studentSmartArray = new FilterDecorator(studentSmartArray, prG);
         studentSmartArray = new SortDecorator(studentSmartArray, cmp);
         studentSmartArray = new MapDecorator(studentSmartArray, func);
         Object[] result = studentSmartArray.toArray();
