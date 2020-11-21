@@ -42,8 +42,8 @@ import ua.edu.ucu.smartarr.DistinctDecorator;
 ````
 filterPositiveIntegersSortAndMultiplyBy2
 ````
-тип повернутих даних з Integer[] змінено на int[], а
-також код
+тип повернутих даних з Integer[] змінено на int[], тип необхідних
+даних з Integer[] на Object[], а також код
 ````
 return Arrays.copyOf(result, result.length, int[].class);
 ````
