@@ -44,7 +44,7 @@ class Student {
 
     @Override
     public boolean equals(Object s) {
-        if (s == null || s.getClass() != Student.class) {
+        if (s == null || s.getClass() != this.getClass()) {
             return false;
         }
         return s.hashCode() == this.hashCode();
