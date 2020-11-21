@@ -20,7 +20,7 @@ public class FilterDecorator extends SmartArrayDecorator {
             }
         }
         elements = new Object[i];
-        for (int j = 0; j < i; j++){
+        for (int j = 0; j < i; j++) {
             elements[j] = filteredElements[j];
         }
     }

@@ -11,7 +11,7 @@ public class DistinctDecorator extends SmartArrayDecorator {
         int i = 0;
         for (Object elem: super.toArray()) {
             boolean notExists = true;
-            for (Object unique: uniqueElements){
+            for (Object unique: uniqueElements) {
                 if (elem.equals(unique)) {
                     notExists = false;
                     break;
@@ -23,7 +23,7 @@ public class DistinctDecorator extends SmartArrayDecorator {
             }
         }
         elements = new Object[i];
-        for (int j = 0; j < i; j++){
+        for (int j = 0; j < i; j++) {
             elements[j] = uniqueElements[j];
         }
     }

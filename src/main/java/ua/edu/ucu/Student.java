@@ -33,7 +33,17 @@ class Student {
 
     @Override
     public String toString() {
-        return "Student{name=" + name + ", surname=" + surname + ", " + "GPA=" + GPA + ", year=" + year + '}';
+        return "Student{name=" + name + ", surname=" + surname + ", " +
+                "GPA=" + GPA + ", year=" + year + '}';
+    }
+
+    @Override
+    public boolean equals(Object s) {
+        Student st = (Student) s;
+        if (st == null) {
+            return false;
+        }
+        return st.toString().equals(this.toString());
     }
 
 }

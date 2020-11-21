@@ -50,11 +50,52 @@ public class SmartArrayApp {
     }
 
     public static String[]
-            findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(Student[] students) {
+            findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(
+                    Student[] students) {
+        MyPredicate pr1 = new MyPredicate() {
+            @Override
+            public boolean test(Object s) {
+                Student st = (Student) s;
+                return st.getYear() == 2;
+            }
+        };
+
+        MyPredicate pr2 = new MyPredicate() {
+            @Override
+            public boolean test(Object s) {
+                Student st = (Student) s;
+                return st.getGPA() >= 4.0;
+            }
+        };
+
+        MyComparator cmp = new MyComparator() {
+            @Override
+            public int compare(Object s1, Object s2) {
+                Student st1 = (Student) s1;
+                Student st2 = (Student) s2;
+                return st1.getSurname().compareTo(st2.getSurname());
+            }
+        };
+
+        MyFunction func = new MyFunction() {
+            @Override
+            public Object apply(Object s) {
+                Student st = (Student) s;
+                return st.getSurname() + " " + st.getName();
+            }
+        };
 
         // Hint: to convert Object[] to String[] - use the following code
         //Object[] result = studentSmartArray.toArray();
         //return Arrays.copyOf(result, result.length, String[].class);
-        return null;
+
+        SmartArray studentSmartArray = new BaseArray(students);
+        studentSmartArray = new DistinctDecorator(studentSmartArray);
+        studentSmartArray = new FilterDecorator(studentSmartArray, pr1);
+        studentSmartArray = new FilterDecorator(studentSmartArray, pr2);
+        studentSmartArray = new SortDecorator(studentSmartArray, cmp);
+        studentSmartArray = new MapDecorator(studentSmartArray, func);
+        Object[] result = studentSmartArray.toArray();
+        return Arrays.copyOf(result, result.length, String[].class);
     }
 }

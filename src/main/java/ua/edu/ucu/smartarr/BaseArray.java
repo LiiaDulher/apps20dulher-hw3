@@ -1,10 +1,10 @@
 package ua.edu.ucu.smartarr;
 
 // Base array for decorators
-public class BaseArray implements SmartArray{
+public class BaseArray implements SmartArray {
     private Object[] elements;
 
-    public BaseArray(Object[] elms){
+    public BaseArray(Object[] elms) {
         elements = elms.clone();
     }
 
